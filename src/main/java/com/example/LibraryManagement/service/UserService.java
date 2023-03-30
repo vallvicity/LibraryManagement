@@ -13,5 +13,21 @@ public class UserService {
     public static void populateFakeUsers(int fakeUsersNumber) {
         Utils.populateFakeUsers(fakeUsersNumber, users);
     }
+
+    public HashMap<String,User> getAllUsers() {
+        return users;
+    }
+
+    public User findUserById(String id) {
+        return users.get(id);
+    }
+
+    public void deleteUserById(String id) {
+        users.remove(id);
+    }
+
+    public void updateUserByUser(User userFound) {
+        users.put(userFound.getUserId(), userFound);
+    }
 }
 

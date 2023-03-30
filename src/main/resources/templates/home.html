@@ -5,7 +5,12 @@
     <title>Home Page</title>
 </head>
 <body>
-<h1>Hello World!</h1>
+<h1 th:text = "${homeMessage}"></h1>
+<h1>Hello Books!</h1>
 <p th:text="${todayDate}"></p>
+
+<a th:href="@{user/users}">Go to users domain</a>
+<br>
+<a th:href="@{librarians}"> Go to librarians domain</a>
 </body>
 </html>

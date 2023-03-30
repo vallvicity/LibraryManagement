@@ -10,10 +10,23 @@ import java.util.Date;
 @Controller
 public class HomeController {
 
+    @RequestMapping("/")
+    public String homePage(Model model) {
+        model.addAttribute("homeMessage", "Welcome to the Library App!");
+        return "home";
+    }
+
     @RequestMapping("/home")
     public String getHome(Model model) {
 
         model.addAttribute("todayDate", new Date().toString());
         return "home";
     }
+
+
+    @RequestMapping("/librarians")
+    public String goToLibrarians() {
+        return "librarians";
+    }
+
 }
