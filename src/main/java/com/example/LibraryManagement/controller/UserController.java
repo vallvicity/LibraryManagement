@@ -7,6 +7,7 @@ import com.example.LibraryManagement.utils.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -54,14 +55,18 @@ public class UserController {
         model.addAttribute("userFromController", userFound);
         return "userFormToUpdate";
     }
-    @RequestMapping("/updateUser")
-    public String updateUser(@RequestParam("idFromView") String id) {
+    @PostMapping("/updateUser")
+    public String updateUser(@RequestParam("idFromView") String id, User userToUpdate) {
 
         User userFound = userService.findUserById(id);
 
         if(userFound == null) {
 
+            //model.addAttribute("messageNotFound", "Error: User Not Found");
+            return "errorManaged";
+
         }
-        return "";
+        userService.updateUserByUser(userToUpdate);
+        return "redirect:users";
     }
 }

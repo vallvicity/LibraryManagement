@@ -24,9 +24,4 @@ public class HomeController {
     }
 
 
-    @RequestMapping("/librarians")
-    public String goToLibrarians() {
-        return "librarians";
-    }
-
 }

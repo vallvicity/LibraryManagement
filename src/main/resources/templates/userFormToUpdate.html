@@ -8,14 +8,20 @@
 <body>
 <h5>Update User</h5>
 
-<form method="post">
+<form th:action="@{updateUser(idFromView=${userFromController.userId})}"
+      method="post">
+      <!--th:object="${userFromController}">-->
+    <p>
+        <label for="userId">User Id</label>
+        <input type="text"  name="userId" id="userId" th:field="${userFromController.userId}" readonly>
+    </p>
     <p>
         <label for="name">Full name</label>
         <input type="text"  name="name" id="name" th:field="${userFromController.name}">
     </p>
     <p>
         <label for="age">Age</label>
-        <input type="text"  name="age" id="age" th:field="${userFromController.age}">
+        <input type="text"  name="a" id="age" th:field="${userFromController.age}">
     </p>
     <p>
         <label for="address">Address</label>

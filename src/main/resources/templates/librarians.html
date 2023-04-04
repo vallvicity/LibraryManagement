@@ -5,10 +5,22 @@
     <title>Librarians Page</title>
 </head>
 <body>
-<h5> You are in librarians domain</h5>
+<h5> You are in librarians domain</h5><br>
+
+<table>
+    <tr th:each="librarian:${librarians}">
+        <td th:text="${librarian.value.name}"></td>
+        <td th:text="${librarian.value.age}"></td>
+        <td th:text="${librarian.value.position}"></td>
+        <td th:text="${librarian.value.address}"></td>
+        <td><a th:href="@{deleteLibrarian(idFromView=${librarian.value.librarianId})}">Delete</a></td>
+
+    </tr>
+</table>
 
 
-
+<a th:href="@{/createLibrarian(qty=1)}">Create a librarian</a>
+<br>
 <a th:href="@{/home}">Go Homepage</a>
 </body>
 </html>
