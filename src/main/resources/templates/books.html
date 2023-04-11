@@ -5,15 +5,27 @@
     <title>Books List</title>
 </head>
 <body>
-<table>
-  <tr th:each="book:${booksList}">
-    <td th:text="${book.value.bookId}"></td>
-    <td th:text="${book.value.title}"></td>
-    <td th:text="${book.value.author}"></td>
-    <td th:text="${book.value.publishedYear}"></td>
 
-  </tr>
-</table>
+<h4>Books List</h4>
+<a th:href="@{/user/users}">Go back to Users</a>
+<a th:href="@{/librarians}">Go back to Librarians</a>
+<h5>User:</h5>
+<h4 th:text="${user.name}"></h4>
+
+<form th:action="@{borrow/createBorrow(userIdFromView=${user.userId})}">
+    <p><input type="submit" value="Send"></p>
+    <table>
+      <td><input type="hidden" name="userIdFromView" th:value="${user.userId}"></td>
+      <tr th:each="book:${booksList}">
+        <td><input type="checkbox" name="selectedBooks" th:value="${book.value.bookId}"></td>
+        <td th:text="${book.value.title}"></td>
+        <td th:text="${book.value.author}"></td>
+        <td th:text="${book.value.publishedYear}"></td>
+        <td th:text="${book.value.bookId}"></td>
+
+      </tr>
+    </table>
+</form>
 
 <a th:href="@{/user/users}">Go back to Users</a>
 <br>

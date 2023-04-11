@@ -12,7 +12,7 @@ public class BookService {
     public static HashMap<String, Book> books = new HashMap<>();
 
     static {
-        Utils.createFakeBooks(200, books);
+        Utils.createFakeBooks(100, books);
     }
 
     public HashMap<String, Book> getAllBooks(){
